@@ -1,11 +1,11 @@
 import pytest
 from api.client import ApiClient
 from api.payloads import courier_payload, courier_login_payload
-from api.endpoints import COURIER_CREATE, COURIER_LOGIN, COURIER_DELETE
+from api.endpoints import COURIER_CREATE, COURIER_LOGIN, COURIER_DELETE, BASE_URL
 
 @pytest.fixture()
 def api():
-    return ApiClient()
+    return ApiClient(BASE_URL)
 
 @pytest.fixture()
 def courier_data():

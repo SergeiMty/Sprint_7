@@ -1,9 +1,9 @@
 from faker import Faker
 
-fake = Faker("en_US")  # ВАЖНО: ASCII, чтобы не ловить твой UnicodeEncodeError
+fake = Faker("en_US")  
 
 def courier_payload() -> dict:
-    # уникальный логин, чтобы не ловить конфликты
+    
     login = f"serg_{fake.user_name()}_{fake.pyint(min_value=1000, max_value=9999)}"
     password = fake.password(length=10)
     first_name = fake.first_name()
@@ -27,7 +27,7 @@ def order_payload(colors: list[str] | None):
         "deliveryDate": "2025-12-25",
         "comment": "Test order",
     }
-    # по заданию нужно проверить: 1 цвет, 2 цвета, без цвета
+    
     if colors is not None:
         payload["color"] = colors
     return payload
